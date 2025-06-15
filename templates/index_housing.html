@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão de Valor de Imóvel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"], select {
+            width: calc(100% - 10px);
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            background-color: #e2f0fb;
+            color: #004085;
+            border: 1px solid #b8daff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Previsão do Valor do Imóvel na Califórnia</h1>
+        <form action="/predict_housing" method="post">
+            <div class="form-group">
+                <label for="longitude">Longitude:</label>
+                <input type="number" step="0.0001" id="longitude" name="longitude" required value="-122.23">
+            </div>
+
+            <div class="form-group">
+                <label for="latitude">Latitude:</label>
+                <input type="number" step="0.0001" id="latitude" name="latitude" required value="37.88">
+            </div>
+
+            <div class="form-group">
+                <label for="housing_median_age">Idade Média do Imóvel:</label>
+                <input type="number" id="housing_median_age" name="housing_median_age" required min="1" value="41">
+            </div>
+
+            <div class="form-group">
+                <label for="total_rooms">Total de Cômodos:</label>
+                <input type="number" id="total_rooms" name="total_rooms" required min="1" value="880">
+            </div>
+
+            <div class="form-group">
+                <label for="total_bedrooms">Total de Quartos:</label>
+                <input type="number" id="total_bedrooms" name="total_bedrooms" required min="1" value="129">
+            </div>
+
+            <div class="form-group">
+                <label for="population">População do Bloco:</label>
+                <input type="number" id="population" name="population" required min="1" value="322">
+            </div>
+
+            <div class="form-group">
+                <label for="households">Número de Residências:</label>
+                <input type="number" id="households" name="households" required min="1" value="126">
+            </div>
+
+            <div class="form-group">
+                <label for="median_income">Renda Média (em dezenas de milhares de USD):</label>
+                <input type="number" step="0.0001" id="median_income" name="median_income" required min="0.1" value="8.3252">
+            </div>
+
+            <div class="form-group">
+                <label for="ocean_proximity">Proximidade ao Oceano:</label>
+                <select id="ocean_proximity" name="ocean_proximity" required>
+                    <option value="INLAND">INLAND (Interior)</option>
+                    <option value="&lt;1H OCEAN">&lt;1H OCEAN (Menos de 1h do Oceano)</option>
+                    <option value="NEAR BAY">NEAR BAY (Perto da Baía)</option>
+                    <option value="NEAR OCEAN">NEAR OCEAN (Perto do Oceano)</option>
+                    <option value="ISLAND">ISLAND (Ilha)</option>
+                </select>
+            </div>
+
+            <button type="submit">Prever Valor</button>
+        </form>
+
+        {% if prediction_text %}
+            <div class="result">
+                {{ prediction_text }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
