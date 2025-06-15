@@ -124,7 +124,7 @@ Certifique-se de ter o [Anaconda](https://www.anaconda.com/products/individual) 
 
 ## Demonstração em Vídeo
 
-Assista à demonstração em vídeo deste projeto em: [https://www.youtube.com/watch?v=fB9H-jL9uug](https://www.youtube.com/watch?v=fB9H-jL9uug)
+Assista à demonstração em vídeo deste projeto em: ([https://www.youtube.com/watch?v=fB9H-jL9uug](https://www.youtube.com/watch?v=_mCBvIMQPZA))
 
 ## Contato
 
