@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*.env
+.vscode/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Modelos salvos (binários e grandes, geralmente não versionados a menos que seja essencial)
+# Remova o '#' se você NÃO quiser incluir o modelo .pkl no Git.
+# Para sua prova, pode ser que o professor queira ver o .pkl, então talvez você não queira ignorar.
+# Se você o ignorar, ele não será subido para o GitHub.
+# housing_regression_model.pkl
